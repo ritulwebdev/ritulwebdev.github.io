@@ -12,7 +12,7 @@
 --fs-body: 14px;
   --fs-h1: clamp(52px, 6vw, 82px);
   --fs-h2: clamp(34px, 4vw, 53px);
-  --fs-h3: 20px;
+  --fs-h3: 23px;
   --fs-h4: 14px;
   --fs-small: 13px;
   --fs-feature-title: clamp(27px, 3vw, 39px);
@@ -445,7 +445,7 @@ img {
   line-height: 1;
 }
 .image-badge span {
-  font-size: 9px;
+  font-size: 13px;
   line-height: 1.4;
 }
 .about-copy h2 {
@@ -761,7 +761,7 @@ img {
 .timeline-content h4 {
   margin-top: 3px;
   color: var(--p);
-  font-size: 12px;
+  font-size: 14px;
 }
 .timeline-content>p {
   max-width: 720px;
