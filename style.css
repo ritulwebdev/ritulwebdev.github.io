@@ -2109,7 +2109,7 @@ body.dark-theme .project-showcase-caption > i {
 /* 03 Pammer */
 .client-bento-card:nth-child(3) {
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 2;
 }
 
 /* 04 R3 */
