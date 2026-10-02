@@ -2045,3 +2045,32 @@ body.dark-theme .project-showcase-caption > i {
     font-size: 17px;
   }
 }
+
+/* =========================
+   EXPERIENCE / CLIENT TAGS
+========================= */
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.tag-list span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+
+    background: #f0efff;
+    border: 1px solid #e2e0ff;
+    border-radius: 8px;
+
+    color: #5555d8;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
