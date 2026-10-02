@@ -1818,7 +1818,7 @@ body.dark-theme .footer-links a:hover i {
 .project-showcase-image > img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
   object-position: top center;
   transition: transform .65s ease;
 }
@@ -1828,6 +1828,7 @@ body.dark-theme .footer-links a:hover i {
 }
 
 .project-showcase-image .project-index {
+  display: none;
   z-index: 7;
   top: 16px;
   left: 16px;
