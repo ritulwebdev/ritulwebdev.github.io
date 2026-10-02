@@ -2568,3 +2568,6 @@ body.dark-theme .client-bento-content .project-link {
   visibility: visible !important;
   transform: none !important;
 }
+.skill-pill .fa-elementor {
+  color: #92003B;
+}
