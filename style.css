@@ -2090,6 +2090,16 @@ body.dark-theme .project-showcase-caption > i {
 /* =========================================
    CARD POSITIONS
 ========================================= */
+.client-bento-card {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 15px 45px rgba(39, 28, 91, .08);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
 
 /* 01 Kalyan */
 .client-bento-card:nth-child(1) {
