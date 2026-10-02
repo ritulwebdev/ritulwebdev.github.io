@@ -2448,8 +2448,10 @@ body.dark-theme .project-showcase-caption > i {
   height: 100%;
   display: block;
 
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
+
+  background: #f3f1fa;
 
   transition:
     transform .6s ease,
