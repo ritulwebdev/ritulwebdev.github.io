@@ -2074,3 +2074,295 @@ body.dark-theme .project-showcase-caption > i {
 
     white-space: nowrap;
 }
+/* =========================================
+   CLIENT WORK - BENTO LAYOUT
+========================================= */
+
+.client-bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.client-bento-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 14px 40px rgba(39,28,91,.06);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.client-bento-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 55px rgba(39,28,91,.13);
+}
+
+/* Featured first project */
+.client-featured {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+}
+
+/* Image */
+.client-bento-image {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: #f2f0fa;
+}
+
+.client-bento-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .65s ease;
+}
+
+.client-bento-card:hover .client-bento-image img {
+  transform: scale(1.035);
+}
+
+/* Image overlay */
+.client-bento-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(23,21,43,.55),
+    rgba(23,21,43,.08) 55%,
+    transparent
+  );
+}
+
+/* Category badge */
+.client-bento-image .client-label {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  left: 20px;
+
+  padding: 8px 12px;
+
+  color: #fff;
+  background: rgba(23,21,43,.72);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(8px);
+}
+
+/* Number badge */
+.client-bento-image .client-number {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  right: 20px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--p);
+  background: rgba(255,255,255,.94);
+  border-radius: 50%;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Content */
+.client-bento-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+
+  padding: 30px;
+}
+
+.client-bento-content h3 {
+  margin: 0 0 12px;
+
+  color: var(--ink);
+  font-size: 25px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.client-bento-content p {
+  margin: 0;
+
+  color: var(--muted);
+  font-size: 14px !important;
+  line-height: 1.75;
+}
+
+/* Tags */
+.client-bento-content .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 20px 0 0;
+}
+
+.client-bento-content .tag-list span {
+  padding: 7px 11px;
+
+  color: #625d72;
+  background: #f5f3fb;
+  border: 1px solid #e7e3f2;
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Project link */
+.client-bento-content .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+
+  color: var(--p);
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: gap .25s ease;
+}
+
+.client-bento-content .project-link:hover {
+  gap: 12px;
+}
+
+/* Shopify card */
+.client-shopify {
+  border-color: rgba(103,87,245,.18);
+}
+
+.client-shopify .client-number {
+  color: #008060;
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme .client-bento-card {
+  background: #171a21;
+  border-color: #292d37;
+  box-shadow: none;
+}
+
+body.dark-theme .client-bento-card:hover {
+  border-color: #4a4565;
+  box-shadow: 0 24px 55px rgba(0,0,0,.25);
+}
+
+body.dark-theme .client-bento-content h3 {
+  color: #fff;
+}
+
+body.dark-theme .client-bento-content p {
+  color: #aaa8b8;
+}
+
+body.dark-theme .client-bento-content .tag-list span {
+  background: #20232c;
+  border-color: #30343e;
+  color: #d8d6e3;
+}
+
+body.dark-theme .client-bento-content .project-link {
+  color: #8a7dff;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .client-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .client-featured {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+
+  .client-bento-image {
+    min-height: 320px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+  .client-bento {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .client-featured {
+    grid-column: span 1;
+    display: flex;
+  }
+
+  .client-bento-image {
+    min-height: 245px;
+  }
+
+  .client-bento-content {
+    padding: 23px;
+  }
+
+  .client-bento-content h3 {
+    font-size: 21px;
+  }
+
+  .client-bento-content p {
+    font-size: 14px !important;
+  }
+
+  .client-bento-image .client-label {
+    top: 15px;
+    left: 15px;
+    padding: 7px 10px;
+    font-size: 9px;
+  }
+
+  .client-bento-image .client-number {
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+  }
+}
