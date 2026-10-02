@@ -1830,3 +1830,33 @@ h4 {
     font-size: 14px !important;
   }
 }
+
+/* Footer Social Icons */
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 13px;
+    transition: .25s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    background: var(--p);
+    border-color: var(--p);
+    transform: translateY(-2px);
+}
+
+.footer-links a i {
+    font-size: 13px;
+}
