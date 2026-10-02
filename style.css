@@ -2363,6 +2363,387 @@ body.dark-theme .project-showcase-caption > i {
     font-size: 21px;
   }
 }
+/* =========================================
+   CLIENT WORK - BENTO
+========================================= */
+
+.client-bento {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 300px;
+  gap: 22px;
+}
+
+/* =========================================
+   CARD POSITIONS
+========================================= */
+
+.client-bento-card {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 15px 45px rgba(39, 28, 91, .08);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+/* Kalyan - right side tall */
+.client-bento-card:nth-child(1) {
+  grid-column: 3;
+  grid-row: 2 / span 2;
+}
+
+/* Lush */
+.client-bento-card:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Pammer */
+.client-bento-card:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* R3 - large */
+.client-bento-card:nth-child(4) {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+/* Thrive */
+.client-bento-card:nth-child(5) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Gifthamper - large bottom */
+.client-bento-card:nth-child(6) {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+}
+
+/* Remove old featured behaviour */
+.client-featured {
+  display: block;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.client-bento-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #f3f1fa;
+}
+
+.client-bento-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+  object-position: top center;
+
+  transition:
+    transform .6s ease,
+    filter .4s ease;
+}
+
+/* =========================================
+   IMAGE DARK OVERLAY
+========================================= */
+
+.client-bento-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(20, 17, 40, .88),
+    rgba(20, 17, 40, .18) 55%,
+    rgba(20, 17, 40, 0)
+  );
+
+  opacity: 0;
+
+  transition: opacity .4s ease;
+}
+
+
+/* =========================================
+   PROJECT CONTENT
+   HIDDEN UNTIL HOVER
+========================================= */
+
+.client-bento-content {
+  position: absolute;
+  z-index: 5;
+
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  padding: 22px;
+
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+
+  background: rgba(20,17,40,.78);
+  backdrop-filter: blur(14px);
+
+  color: #fff;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(25px) scale(.97);
+
+  transition:
+    opacity .35s ease,
+    visibility .35s ease,
+    transform .35s ease;
+}
+
+
+/* =========================================
+   HOVER - OPEN POPUP
+========================================= */
+
+.client-bento-card:hover .client-bento-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.client-bento-card:hover .client-bento-image::after {
+  opacity: 1;
+}
+
+.client-bento-card:hover .client-bento-image img {
+  transform: scale(1.06);
+  filter: brightness(.72);
+}
+
+.client-bento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 65px rgba(39,28,91,.18);
+}
+
+
+/* =========================================
+   PROJECT TITLE
+========================================= */
+
+.client-bento-content h3 {
+  margin: 0 0 8px;
+
+  color: #fff;
+
+  font-size: 23px;
+  line-height: 1.15;
+  letter-spacing: -.4px;
+}
+
+.client-bento-content p {
+  margin: 0;
+
+  color: rgba(255,255,255,.82);
+
+  font-size: 13px !important;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   TAGS
+========================================= */
+
+.client-bento-content .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 13px;
+}
+
+.client-bento-content .tag-list span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  color: #fff;
+
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   PROJECT LINK
+========================================= */
+
+.client-bento-content .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 14px;
+
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: gap .25s ease;
+}
+
+.client-bento-content .project-link:hover {
+  gap: 11px;
+}
+
+
+/* =========================================
+   CATEGORY LABEL
+========================================= */
+
+.client-bento-image .client-label {
+  position: absolute;
+  z-index: 8;
+
+  top: 17px;
+  left: 17px;
+
+  padding: 8px 12px;
+
+  color: #fff;
+
+  background: rgba(23,21,43,.78);
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .7px;
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.client-bento-image .client-number {
+  position: absolute;
+  z-index: 8;
+
+  top: 17px;
+  right: 17px;
+
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--p);
+
+  background: rgba(255,255,255,.96);
+
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.15);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .client-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 300px;
+  }
+
+  .client-bento-card:nth-child(1),
+  .client-bento-card:nth-child(2),
+  .client-bento-card:nth-child(3),
+  .client-bento-card:nth-child(4),
+  .client-bento-card:nth-child(5),
+  .client-bento-card:nth-child(6) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .client-bento-card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .client-bento-card:nth-child(4),
+  .client-bento-card:nth-child(6) {
+    grid-column: span 2;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+  .client-bento {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 320px;
+    gap: 18px;
+  }
+
+  .client-bento-card:nth-child(1),
+  .client-bento-card:nth-child(2),
+  .client-bento-card:nth-child(3),
+  .client-bento-card:nth-child(4),
+  .client-bento-card:nth-child(5),
+  .client-bento-card:nth-child(6) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .client-bento-content {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 18px;
+  }
+
+  .client-bento-content h3 {
+    font-size: 20px;
+  }
+
+  .client-bento-content p {
+    font-size: 12px !important;
+  }
+}
 
 
 /* =========================================
