@@ -1860,3 +1860,30 @@ h4 {
 .footer-links a i {
     font-size: 13px;
 }
+/* =========================================
+   DARK THEME - SOCIAL ICON HOVER
+   White background + black icon
+   ========================================= */
+
+/* Header social icons */
+body.dark-theme .nav-socials a:hover {
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .nav-socials a:hover i {
+    color: #000000 !important;
+}
+
+
+/* Footer social icons */
+body.dark-theme .footer-links a:hover {
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-theme .footer-links a:hover i {
+    color: #000000 !important;
+}
