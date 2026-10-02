@@ -2556,3 +2556,9 @@ body.dark-theme .client-bento-content .project-link {
 .client-bento-card:nth-child(1) .client-bento-image img {
   object-position: center top;
 }
+/* CLIENT WORK - FIX VISIBILITY */
+.client-bento {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
