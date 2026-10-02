@@ -2403,6 +2403,13 @@ body.dark-theme .project-showcase-caption > i {
     grid-column: auto;
     grid-row: auto;
   }
+  /* RIGHT SIDE - 3 EQUAL CARDS */
+.client-bento-card:nth-child(5),
+.client-bento-card:nth-child(1),
+.client-bento-card:nth-child(3) {
+  height: 230px;
+}
+  
 
   .client-bento-card:nth-child(1) {
     grid-column: span 2;
