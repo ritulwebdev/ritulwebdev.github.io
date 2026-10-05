@@ -135,13 +135,14 @@ if (contactForm && contactFormStatus) {
             );
 
             const result = await response.json();
-
-           if (response.ok && result.success) {
+        if (response.ok && result.success) {
                 contactForm.reset();
             
-                contactForm.querySelectorAll(
+                const formElements = contactForm.querySelectorAll(
                     ".contact-form-row, .contact-field, .contact-submit"
-                ).forEach(function(element) {
+                );
+            
+                formElements.forEach(function(element) {
                     element.style.display = "none";
                 });
             
@@ -157,14 +158,26 @@ if (contactForm && contactFormStatus) {
                 contactFormStatus.style.minHeight = "140px";
             
                 setTimeout(function() {
+            
+                    // Close popup
+                    closeModal();
+            
+                    // Hide success message
                     contactFormStatus.style.display = "none";
+            
+                    // Show form again for next time
+                    formElements.forEach(function(element) {
+                        element.style.display = "";
+                    });
+            
                 }, 4000);
-            } else {
-                throw new Error(
-                    result.message ||
-                    "Something went wrong. Please try again."
-                );
             }
+              else {
+                    throw new Error(
+                        result.message ||
+                        "Something went wrong. Please try again."
+                    );
+                }
 
         } catch (error) {
 
