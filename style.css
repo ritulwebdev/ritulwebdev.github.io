@@ -2585,10 +2585,11 @@ body.dark-theme .client-bento-content .project-link {
 
   .client-bento-card:hover .client-bento-image::after {
     opacity: 1 !important;
+    background: rgba(20, 17, 40, .58) !important;
   }
 
   .client-bento-card:hover .client-bento-image img {
-    filter: brightness(.72) !important;
+    filter: brightness(.65) !important;
     transform: scale(1.02) !important;
   }
 
