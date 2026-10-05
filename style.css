@@ -2598,3 +2598,17 @@ body.dark-theme .client-bento-content .project-link {
     transform: translateY(0) scale(1) !important;
   }
 }
+/* =========================================
+   MOBILE - SMALLER PROJECT IMAGE
+========================================= */
+
+@media (max-width: 620px) {
+
+  .client-bento-image img {
+    width: 88% !important;
+    height: 88% !important;
+    margin: 6% auto 0 !important;
+    object-fit: contain !important;
+  }
+
+}
