@@ -147,6 +147,32 @@ if (contactForm && contactFormStatus) {
     contactForm.addEventListener("submit", async function(e) {
         e.preventDefault();
 
+        const phoneInput = document.getElementById("contactPhone");
+
+        if (phoneInput) {
+            const phoneNumber = phoneInput.value.trim();
+        
+            if (!/^\d{10}$/.test(phoneNumber)) {
+                alert("Please enter a valid 10-digit phone number.");
+                phoneInput.focus();
+                return;
+            }
+        }
+        const emailInput = document.getElementById("contactEmail");
+
+        if (emailInput) {
+            const email = emailInput.value.trim();
+        
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                emailInput.focus();
+                return;
+            }
+        }
+
         const wordCount = getWordCount(messageInput.value);
 
         if (wordCount < 100) {
