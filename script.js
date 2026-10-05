@@ -41,5 +41,26 @@ function updateBackTopColor(){
 addEventListener("scroll", updateBackTopColor, {passive:true});
 addEventListener("resize", updateBackTopColor);
 updateBackTopColor();
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{let t=document.querySelector(a.getAttribute("href"));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth"})}}))});
 
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+
+        const href = a.getAttribute("href");
+
+        // Ignore href="#"
+        if (!href || href === "#") {
+            return;
+        }
+
+        const target = document.querySelector(href);
+
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+});                                            
