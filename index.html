@@ -655,13 +655,19 @@
 
       <div class="contact-field">
         <label for="contactMessage">Message</label>
-        <textarea
+       <textarea
           id="contactMessage"
           name="message"
           rows="5"
           placeholder="Tell me about your project..."
           required
-        ></textarea>
+      ></textarea>
+      
+      <small class="message-counter" id="messageCounter">
+          0 / 200 words
+      </small>
+      
+      <div class="field-error" id="messageError" role="alert"></div>
       </div>
 
       <button type="submit" class="contact-submit">
@@ -675,20 +681,7 @@
 </div>
   
 <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-<script>
-  window.formspree =
-    window.formspree ||
-    function () {
-      (formspree.q = formspree.q || []).push(arguments);
-    };
 
-  formspree('initForm', {
-    formElement: '#contactForm',
-    formId: 'xkyekybe'
-  });
-</script>
-
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 <script src="script.js"></script>
 </body>
 </html>
