@@ -210,25 +210,7 @@ if (contactForm && contactFormStatus) {
         if (!isValid) {
             return;
         }
-
-        const wordCount = getWordCount(messageInput.value);
-
-        if (wordCount < 100) {
-            messageError.textContent =
-                "Please write at least 100 words in your message.";
         
-            messageInput.focus();
-            return;
-        }
-        
-        if (wordCount > 200) {
-            messageError.textContent =
-                "Please keep your message within 200 words.";
-        
-            messageInput.focus();
-            return;
-        }
-
         const submitBtn = contactForm.querySelector(".contact-submit");
         const originalHTML = submitBtn.innerHTML;
 
