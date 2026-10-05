@@ -2597,5 +2597,39 @@ body.dark-theme .client-bento-content .project-link {
     visibility: visible !important;
     transform: translateY(0) scale(1) !important;
   }
+}
+/* =========================================
+   FINAL MOBILE CLIENT CARD OVERLAY FIX
+========================================= */
 
+@media (max-width: 620px) {
+
+  .client-bento-content {
+    top: 62px !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+
+    padding: 18px !important;
+
+    overflow-y: auto;
+    z-index: 5;
+  }
+
+  .client-bento-image .client-label {
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 10 !important;
+  }
+
+  .client-bento-content h3 {
+    margin-top: 0 !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .client-bento-content p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
 }
