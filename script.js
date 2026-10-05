@@ -42,3 +42,53 @@ addEventListener("scroll", updateBackTopColor, {passive:true});
 addEventListener("resize", updateBackTopColor);
 updateBackTopColor();
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{let t=document.querySelector(a.getAttribute("href"));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth"})}}))});
+
+/* =========================================
+   CONTACT MODAL
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const openContactModal = document.getElementById("openContactModal");
+  const contactModal = document.getElementById("contactModal");
+  const closeContactModal = document.getElementById("closeContactModal");
+  const contactModalOverlay = document.getElementById("contactModalOverlay");
+
+  if (!openContactModal || !contactModal) return;
+
+  function openModal() {
+    contactModal.classList.add("active");
+    contactModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    contactModal.classList.remove("active");
+    contactModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  // Open popup
+  openContactModal.addEventListener("click", function (e) {
+    e.preventDefault();
+    openModal();
+  });
+
+  // Close with X
+  if (closeContactModal) {
+    closeContactModal.addEventListener("click", closeModal);
+  }
+
+  // Close by clicking outside popup
+  if (contactModalOverlay) {
+    contactModalOverlay.addEventListener("click", closeModal);
+  }
+
+  // Close with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && contactModal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+});
