@@ -2577,3 +2577,25 @@ body.dark-theme .client-bento-content .project-link {
         zoom: 0.88;
     }
 }
+/* =========================================
+   MOBILE - PROJECT CARD TAP OVERLAY
+========================================= */
+
+@media (max-width: 620px) {
+
+  .client-bento-card:hover .client-bento-image::after {
+    opacity: 1 !important;
+  }
+
+  .client-bento-card:hover .client-bento-image img {
+    filter: brightness(.72) !important;
+    transform: scale(1.02) !important;
+  }
+
+  .client-bento-card:hover .client-bento-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+}
