@@ -2094,33 +2094,33 @@ body.dark-theme .project-showcase-caption > i {
   box-shadow: 0 15px 45px rgba(39, 28, 91, .08);
   transition: transform .35s ease, box-shadow .35s ease;
 }
-/* 02 Lush */
-.client-bento-card:nth-child(2) {
-  grid-column: 2;
+/* 01 Lush Banners */
+.client-bento-card:nth-child(1) {
+  grid-column: 1;
   grid-row: 2;
 }
 
-/* 03 Pammer */
-.client-bento-card:nth-child(3) {
+/* 02 Pammer PPC */
+.client-bento-card:nth-child(2) {
   grid-column: 3;
   grid-row: 2;
 }
 
-/* 04 R3 */
-.client-bento-card:nth-child(4) {
+/* 03 R3 Wheels */
+.client-bento-card:nth-child(3) {
   grid-column: 1 / span 2;
   grid-row: 1;
 }
 
-/* 05 Thrive */
-.client-bento-card:nth-child(5) {
+/* 04 Thrive Freeze */
+.client-bento-card:nth-child(4) {
   grid-column: 3;
   grid-row: 1;
 }
 
-/* 06 Gifthamper */
-.client-bento-card:nth-child(6) {
-  grid-column: 1;
+/* 05 Gifthamper */
+.client-bento-card:nth-child(5) {
+  grid-column: 2;
   grid-row: 2;
 }
 
