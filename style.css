@@ -2426,8 +2426,7 @@ body.dark-theme .project-showcase-caption > i {
   .client-bento-card:nth-child(2),
   .client-bento-card:nth-child(3),
   .client-bento-card:nth-child(4),
-  .client-bento-card:nth-child(5),
-  .client-bento-card:nth-child(6) {
+  .client-bento-card:nth-child(5){
     grid-column: 1;
     grid-row: auto;
   }
@@ -2510,7 +2509,7 @@ body.dark-theme .client-bento-content .project-link {
 
 @media (max-width: 620px) {
 
-  .client-bento {
+  /* .client-bento {
     grid-template-columns: 1fr;
     gap: 18px;
   }
@@ -2518,17 +2517,17 @@ body.dark-theme .client-bento-content .project-link {
   .client-featured {
     grid-column: span 1;
     display: flex;
-  }
-
+  } */
+/* 
   .client-bento-image {
     min-height: 245px;
   }
 
   .client-bento-content {
     padding: 23px;
-  }
+  } */
 
-  .client-bento-content h3 {
+  /* .client-bento-content h3 {
     font-size: 21px;
   }
 
@@ -2541,14 +2540,14 @@ body.dark-theme .client-bento-content .project-link {
     left: 15px;
     padding: 7px 10px;
     font-size: 9px;
-  }
+  } */
 
-  .client-bento-image .client-number {
+  /* .client-bento-image .client-number {
     top: 15px;
     right: 15px;
     width: 38px;
     height: 38px;
-  }
+  } */
 }
 /* Wide project previews */
 .client-bento-card:nth-child(4) .client-bento-image img,
@@ -2585,7 +2584,7 @@ body.dark-theme .client-bento-content .project-link {
 
   .client-bento-card:hover .client-bento-image::after {
     opacity: 1 !important;
-    background: rgba(20, 17, 40, .58) !important;
+    background: rgba(20, 17, 40, .72) !important;
   }
 
   .client-bento-card:hover .client-bento-image img {
