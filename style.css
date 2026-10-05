@@ -2689,6 +2689,20 @@ body.dark-theme .client-bento-content .project-link {
   gap: 16px;
 }
 
+.message-counter {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #8a8698;
+}
+
+.field-error {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #b42318;
+    line-height: 1.4;
+}
 .contact-field {
   display: flex;
   flex-direction: column;
