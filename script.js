@@ -108,9 +108,62 @@ if (openContactModal && contactModal) {
 const contactForm = document.getElementById("contactForm");
 const contactFormStatus = document.getElementById("contactFormStatus");
 
+// Message Word Counter & Validation
+const messageInput = document.getElementById("contactMessage");
+const messageCounter = document.getElementById("messageCounter");
+const messageError = document.getElementById("messageError");
+
+function getWordCount(text) {
+    const trimmedText = text.trim();
+
+    if (!trimmedText) {
+        return 0;
+    }
+
+    return trimmedText.split(/\s+/).length;
+}
+
+if (messageInput && messageCounter) {
+
+    messageInput.addEventListener("input", function() {
+
+        const wordCount = getWordCount(messageInput.value);
+
+        messageCounter.textContent = `${wordCount} / 200 words`;
+
+        if (wordCount > 200) {
+            messageCounter.style.color = "#b42318";
+        } else {
+            messageCounter.style.color = "";
+        }
+
+        if (messageError) {
+            messageError.textContent = "";
+        }
+    });
+}                                                 
+
 if (contactForm && contactFormStatus) {
     contactForm.addEventListener("submit", async function(e) {
         e.preventDefault();
+
+        const wordCount = getWordCount(messageInput.value);
+
+        if (wordCount < 100) {
+            messageError.textContent =
+                "Please write at least 100 words in your message.";
+        
+            messageInput.focus();
+            return;
+        }
+        
+        if (wordCount > 200) {
+            messageError.textContent =
+                "Please keep your message within 200 words.";
+        
+            messageInput.focus();
+            return;
+        }
 
         const submitBtn = contactForm.querySelector(".contact-submit");
         const originalHTML = submitBtn.innerHTML;
@@ -158,18 +211,7 @@ if (contactForm && contactFormStatus) {
                 contactFormStatus.style.minHeight = "140px";
             
                 setTimeout(function() {
-            
-                    // Close popup
-                    closeModal();
-            
-                    // Hide success message
-                    contactFormStatus.style.display = "none";
-            
-                    // Show form again for next time
-                    formElements.forEach(function(element) {
-                        element.style.display = "";
-                    });
-            
+                    closeModal();            
                 }, 4000);
             }
               else {
