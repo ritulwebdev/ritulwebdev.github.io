@@ -616,7 +616,7 @@
     </div>
 
     <form class="contact-form" id="contactForm">
-
+    <input type="hidden" name="access_key" value="b21e4a73-93c3-48b2-9633-1b6473441ba5">
       <div class="contact-form-row">
 
         <div class="contact-field">
@@ -664,11 +664,11 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="contact-submit" data-fs-submit-btn>
+      <button type="submit" class="contact-submit">
         Send Message
         <i class="fa-solid fa-arrow-right"></i>
       </button>
-      <div class="contact-form-status" data-fs-success role="status" aria-live="polite">   Thank you! Your message has been sent successfully. I'll get back to you soon. </div>  <div class="contact-form-status error" data-fs-error role="alert"></div>
+      <div class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></div>
     </form>
 
   </div>
