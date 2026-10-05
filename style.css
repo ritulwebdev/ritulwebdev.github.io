@@ -2574,9 +2574,9 @@ body.dark-theme .client-bento-content .project-link {
 /* Mobile - WordPress floating card */
 @media (max-width: 620px) {
     .floating-top {
-        left: -50px;
-        top: -5px;
-        transform: scale(0.88);
-        transform-origin: left center;
+        left: -50px !important;
+        top: -5px !important;
+        transform: scale(0.88) !important;
+        transform-origin: left center !important;
     }
 }
