@@ -615,7 +615,7 @@
       <p>Have a project in mind? Send me a message and I'll get back to you.</p>
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" novalidate>
     <input type="hidden" name="access_key" value="b21e4a73-93c3-48b2-9633-1b6473441ba5">
       <div class="contact-form-row">
 
@@ -628,6 +628,7 @@
             placeholder="Your name"
             required
           >
+          <div class="field-error" id="nameError" role="alert"></div>
         </div>
 
         <div class="contact-field">
