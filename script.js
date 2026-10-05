@@ -92,3 +92,70 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+  const contactForm = document.getElementById("contactForm");
+  const contactFormStatus = document.getElementById("contactFormStatus");
+
+  if (!contactForm || !contactFormStatus) return;
+
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector(".contact-submit");
+    const originalHTML = submitBtn.innerHTML;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML =
+      'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+    contactFormStatus.className = "contact-form-status";
+    contactFormStatus.textContent = "";
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+
+        contactForm.reset();
+
+        contactFormStatus.className =
+          "contact-form-status success";
+
+        contactFormStatus.textContent =
+          "Thank you! Your message has been sent successfully. I'll get back to you soon.";
+
+      } else {
+
+        const data = await response.json().catch(() => ({}));
+
+        const errorMessage =
+          data.errors?.map(error => error.message).join(", ") ||
+          "Something went wrong. Please try again.";
+
+        throw new Error(errorMessage);
+      }
+
+    } catch (error) {
+
+      contactFormStatus.className =
+        "contact-form-status error";
+
+      contactFormStatus.textContent =
+        error.message || "Unable to send your message. Please try again.";
+
+    } finally {
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+
+    }
+  });
+
+});
