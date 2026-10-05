@@ -146,31 +146,69 @@ if (messageInput && messageCounter) {
 if (contactForm && contactFormStatus) {
     contactForm.addEventListener("submit", async function(e) {
         e.preventDefault();
-
+        
         const phoneInput = document.getElementById("contactPhone");
-
-        if (phoneInput) {
-            const phoneNumber = phoneInput.value.trim();
-        
-            if (!/^\d{10}$/.test(phoneNumber)) {
-                alert("Please enter a valid 10-digit phone number.");
-                phoneInput.focus();
-                return;
-            }
-        }
         const emailInput = document.getElementById("contactEmail");
-
-        if (emailInput) {
-            const email = emailInput.value.trim();
+        const nameInput = document.getElementById("contactName");
         
-            const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneError = document.getElementById("phoneError");
+        const emailError = document.getElementById("emailError");
+        const nameError = document.getElementById("nameError");
         
-            if (!emailPattern.test(email)) {
-                alert("Please enter a valid email address.");
-                emailInput.focus();
-                return;
-            }
+        let isValid = true;
+        
+        // Clear previous errors
+        if (nameError) nameError.textContent = "";
+        if (emailError) emailError.textContent = "";
+        if (phoneError) phoneError.textContent = "";
+        if (messageError) messageError.textContent = "";
+        
+        // Name validation
+        if (!nameInput.value.trim()) {
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
+        }
+        
+        // Email validation
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!email) {
+            emailError.textContent = "Please enter your email address.";
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+        }
+        
+        // Phone validation
+        const phoneNumber = phoneInput.value.trim();
+        
+        if (!phoneNumber) {
+            phoneError.textContent = "Please enter your phone number.";
+            isValid = false;
+        } else if (!/^\d{10}$/.test(phoneNumber)) {
+            phoneError.textContent =
+                "Please enter a valid 10-digit phone number.";
+            isValid = false;
+        }
+        
+        // Message validation
+        const wordCount = getWordCount(messageInput.value);
+        
+        if (wordCount < 100) {
+            messageError.textContent =
+                "Please write at least 100 words in your message.";
+            isValid = false;
+        } else if (wordCount > 200) {
+            messageError.textContent =
+                "Please keep your message within 200 words.";
+            isValid = false;
+        }
+        
+        // Stop submission if any field is invalid
+        if (!isValid) {
+            return;
         }
 
         const wordCount = getWordCount(messageInput.value);
