@@ -2571,3 +2571,12 @@ body.dark-theme .client-bento-content .project-link {
 .skill-pill .fa-elementor {
   color: #92003B;
 }
+/* Mobile - WordPress floating card */
+@media (max-width: 620px) {
+    .floating-top {
+        left: -40px;
+        top: 5px;
+        transform: scale(0.88);
+        transform-origin: left center;
+    }
+}
