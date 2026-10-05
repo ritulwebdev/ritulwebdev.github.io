@@ -62,5 +62,47 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         }
     });
 });
+// Contact Modal
+const openContactModal = document.getElementById("openContactModal");
+const contactModal = document.getElementById("contactModal");
+const closeContactModal = document.getElementById("closeContactModal");
+const contactModalOverlay = document.getElementById("contactModalOverlay");
+
+if (openContactModal && contactModal) {
+
+    function openModal() {
+        contactModal.classList.add("active");
+        contactModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        contactModal.classList.remove("active");
+        contactModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    openContactModal.addEventListener("click", function(e) {
+        e.preventDefault();
+        openModal();
+    });
+
+    if (closeContactModal) {
+        closeContactModal.addEventListener("click", closeModal);
+    }
+
+    if (contactModalOverlay) {
+        contactModalOverlay.addEventListener("click", closeModal);
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (
+            e.key === "Escape" &&
+            contactModal.classList.contains("active")
+        ) {
+            closeModal();
+        }
+    });
+}                                                  
 
 });                                            
