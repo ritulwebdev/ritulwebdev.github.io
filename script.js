@@ -103,6 +103,70 @@ if (openContactModal && contactModal) {
             closeModal();
         }
     });
-}                                                  
+}  
+ // Web3Forms Contact Form
+const contactForm = document.getElementById("contactForm");
+const contactFormStatus = document.getElementById("contactFormStatus");
+
+if (contactForm && contactFormStatus) {
+    contactForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector(".contact-submit");
+        const originalHTML = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+            'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+        contactFormStatus.className = "contact-form-status";
+        contactFormStatus.textContent = "";
+
+        try {
+            const response = await fetch(
+                "https://api.web3forms.com/submit",
+                {
+                    method: "POST",
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }
+            );
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                contactForm.reset();
+
+                contactFormStatus.className =
+                    "contact-form-status success";
+
+                contactFormStatus.textContent =
+                    "Thank you! Your message has been sent successfully. I'll get back to you soon.";
+            } else {
+                throw new Error(
+                    result.message ||
+                    "Something went wrong. Please try again."
+                );
+            }
+
+        } catch (error) {
+
+            contactFormStatus.className =
+                "contact-form-status error";
+
+            contactFormStatus.textContent =
+                error.message ||
+                "Unable to send your message. Please try again.";
+
+        } finally {
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalHTML;
+
+        }
+    });
+}                                                 
 
 });                                            
