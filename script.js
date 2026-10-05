@@ -136,14 +136,29 @@ if (contactForm && contactFormStatus) {
 
             const result = await response.json();
 
-            if (response.ok && result.success) {
+           if (response.ok && result.success) {
                 contactForm.reset();
-
+            
+                contactForm.querySelectorAll(
+                    ".contact-form-row, .contact-field, .contact-submit"
+                ).forEach(function(element) {
+                    element.style.display = "none";
+                });
+            
                 contactFormStatus.className =
                     "contact-form-status success";
-
+            
                 contactFormStatus.textContent =
                     "Thank you! Your message has been sent successfully. I'll get back to you soon.";
+            
+                contactFormStatus.style.display = "flex";
+                contactFormStatus.style.alignItems = "center";
+                contactFormStatus.style.justifyContent = "center";
+                contactFormStatus.style.minHeight = "140px";
+            
+                setTimeout(function() {
+                    contactFormStatus.style.display = "none";
+                }, 4000);
             } else {
                 throw new Error(
                     result.message ||
